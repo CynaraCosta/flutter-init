@@ -5,13 +5,27 @@ void main() => runApp(MaterialApp(
     appBar: AppBar(
       title: const Text("my first app"),
       centerTitle: true,
+      backgroundColor: Colors.red[600],
     ),
     body: const Center(
-      child: Text("hello cynara!"),
+      child: Text(
+        "hello cynara!",
+        style: TextStyle(
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+          letterSpacing: 2.0,
+          color: Colors.grey,
+          fontFamily: 'VT323',
+        ),
+        ),
     ),
     floatingActionButton: FloatingActionButton(
       onPressed: () {  },
-      child: const Text("click"),
+      backgroundColor: Colors.yellow[100],
+      child: const Text(
+        "click",
+        style: TextStyle(color: Colors.black),
+        ),
     ),
   ),
 ));
