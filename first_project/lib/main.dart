@@ -7,17 +7,8 @@ void main() => runApp(MaterialApp(
       centerTitle: true,
       backgroundColor: Colors.red[600],
     ),
-    body: const Center(
-      child: Text(
-        "hello cynara!",
-        style: TextStyle(
-          fontSize: 20,
-          fontWeight: FontWeight.bold,
-          letterSpacing: 2.0,
-          color: Colors.grey,
-          fontFamily: 'VT323',
-        ),
-        ),
+    body: Center(
+      child: Image.asset('assets/mjoana.png'),
     ),
     floatingActionButton: FloatingActionButton(
       onPressed: () {  },
