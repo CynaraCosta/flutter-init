@@ -8,7 +8,14 @@ void main() => runApp(MaterialApp(
       backgroundColor: Colors.red[600],
     ),
     body: Center(
-      child: Image.asset('assets/mjoana.png'),
+      child: ElevatedButton.icon(
+        onPressed: () {
+          print("button is now being clicked!");
+        },
+        icon: const Icon(Icons.mail),
+        style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.pink[200])),
+        label: const Text("Click me!"),
+        ),
     ),
     floatingActionButton: FloatingActionButton(
       onPressed: () {  },
