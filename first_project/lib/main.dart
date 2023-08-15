@@ -7,24 +7,34 @@ void main() => runApp(MaterialApp(
       centerTitle: true,
       backgroundColor: Colors.red[600],
     ),
-    body: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      crossAxisAlignment: CrossAxisAlignment.center,
+    body: Column(
+      mainAxisAlignment: MainAxisAlignment.end,
+      crossAxisAlignment: CrossAxisAlignment.end,
       children: <Widget>[
-        const Text("hello wordl!"),
-        TextButton(
-          onPressed: (){}, 
-          style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(Colors.red[100]),
-          ),
-          child: const Text("clicke me")
-          ),
-          Container(
-            color: Colors.cyan,
-            padding: const EdgeInsets.all(30.0),
-            child: const Text('inside container'),
-          )
-          
+        Container(
+          color: Colors.yellow[100],
+          child: const Row(
+                    children: <Widget>[
+                      Text("hello"),
+                      Text("world"),
+                    ],
+                  ),
+        ),
+        Container(
+          padding: const EdgeInsets.all(16.0),
+          color: Colors.pink[100],
+          child: const Text("one"),
+        ),
+        Container(
+          padding: const EdgeInsets.all(16.0),
+          color: Colors.purple[100],
+          child: const Text("two"),
+        ),
+        Container(
+          padding: const EdgeInsets.all(16.0),
+          color: Colors.green[100],
+          child: const Text("three"),
+        ),
       ],
     ),
     floatingActionButton: FloatingActionButton(
