@@ -7,34 +7,36 @@ void main() => runApp(MaterialApp(
       centerTitle: true,
       backgroundColor: Colors.red[600],
     ),
-    body: Column(
-      mainAxisAlignment: MainAxisAlignment.end,
-      crossAxisAlignment: CrossAxisAlignment.end,
-      children: <Widget>[
-        Container(
-          color: Colors.yellow[100],
-          child: const Row(
-                    children: <Widget>[
-                      Text("hello"),
-                      Text("world"),
-                    ],
-                  ),
+    body: Row(
+      children: [
+        Expanded(
+          flex: 3,
+          child: Image.asset('assets/mjoana.png')
+          ),
+        Expanded(
+          flex: 1,
+          child: Container(
+            padding: const EdgeInsets.all(30.0),
+            color: Colors.cyan,
+            child: const Text('1'),
+          ),
         ),
-        Container(
-          padding: const EdgeInsets.all(16.0),
-          color: Colors.pink[100],
-          child: const Text("one"),
+        Expanded(
+          flex: 1,
+          child: Container(
+            padding: const EdgeInsets.all(30.0),
+            color: Colors.pinkAccent,
+            child: const Text('2'),
+          ),
         ),
-        Container(
-          padding: const EdgeInsets.all(16.0),
-          color: Colors.purple[100],
-          child: const Text("two"),
-        ),
-        Container(
-          padding: const EdgeInsets.all(16.0),
-          color: Colors.green[100],
-          child: const Text("three"),
-        ),
+        Expanded(
+          flex: 1,
+          child: Container(
+            padding: const EdgeInsets.all(30.0),
+            color: Colors.amber,
+            child: const Text('3'),
+          ),
+        )
       ],
     ),
     floatingActionButton: FloatingActionButton(
