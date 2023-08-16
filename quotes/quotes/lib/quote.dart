@@ -7,4 +7,12 @@ class Quote {
     this.author = author!;
   }
 
+  String getAuthorValue(Quote quote) {
+    if (quote.author != null) {
+      return quote.author!;
+    } else {
+      return "Unknown Author";
+    }
+  }
+
 }
