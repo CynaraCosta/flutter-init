@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
-import 'package:rick_and_morty/data/service/character_service.dart';
+import 'package:rick_and_morty/home/presentation/page/home_page.dart';
 import 'package:rick_and_morty/injection.dart';
 
 void main() async {
@@ -8,11 +7,11 @@ void main() async {
   //codigo nativo antes de chamar o runApp
   WidgetsFlutterBinding.ensureInitialized();
   configureDependencies();
-  runApp(const MyApp());
+  runApp(const RickAndMortyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class RickAndMortyApp extends StatelessWidget {
+  const RickAndMortyApp({super.key});
 
   // This widget is the root of your application.
   @override
@@ -23,24 +22,9 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(),
+      home: const HomePage(),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
-  
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: TextButton(
-        onPressed: () {
-          final CharacterService service = GetIt.I.get();
-          service.getCharacters();
-        }, 
-        child:const Text('Click here')),
-    );
-  }
-}
 
