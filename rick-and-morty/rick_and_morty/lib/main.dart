@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:rick_and_morty/home/presentation/page/home_page.dart';
 import 'package:rick_and_morty/injection.dart';
 
+// flutter pub run build_runner build
+
 void main() async {
   // usa essa linha embaixo, quando chama async na main, pq precisa chamar 
   //codigo nativo antes de chamar o runApp

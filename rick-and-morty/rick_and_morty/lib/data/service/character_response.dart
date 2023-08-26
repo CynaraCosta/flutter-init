@@ -66,7 +66,8 @@ class CharacterApiResponse extends Equatable {
 
   factory CharacterApiResponse.fromJson(Map<String, dynamic> json) =>
     CharacterApiResponse(
-      CharacterInfoResponse.fromJson(json['info']),
+      CharacterInfoResponse.fromJson
+      (json['info']),
       (json['results'] as List<dynamic>)
         .map((characterJson) => CharacterResponse.fromJson(characterJson))
         .toList(),
