@@ -62,7 +62,7 @@ class CharacterCardWidget extends StatelessWidget {
                         height: 32.0
                       ),
                       Text(
-                        'Identifier',
+                        'Last known location',
                         style: theme.textTheme.bodySmall?.copyWith(
                           fontSize: 13
                           ),
@@ -70,9 +70,11 @@ class CharacterCardWidget extends StatelessWidget {
                       const SizedBox(
                         height: 8.0,
                       ),
-                      Text(
-                        response.id.toString(), 
-                        style: theme.textTheme.titleMedium
+                      Expanded(
+                        child: Text(
+                          response.location.name, 
+                          style: theme.textTheme.titleMedium
+                        )
                       )
                     ],
                   ),
