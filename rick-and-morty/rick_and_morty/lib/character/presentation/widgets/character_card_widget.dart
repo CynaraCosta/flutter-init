@@ -36,7 +36,7 @@ class CharacterCardWidget extends StatelessWidget {
                         response.name,
                         overflow: TextOverflow.ellipsis,
                         maxLines: 1,
-                        style:  theme.textTheme.titleLarge //theme.textTheme.headlineSmall
+                        style:  theme.textTheme.titleLarge
                             ?.copyWith(fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(
