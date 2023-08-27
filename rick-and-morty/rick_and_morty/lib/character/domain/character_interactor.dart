@@ -1,6 +1,6 @@
 import 'package:injectable/injectable.dart';
-import 'package:rick_and_morty/data/character_repository.dart';
-import 'package:rick_and_morty/data/service/character_response.dart';
+import 'package:rick_and_morty/character/data/character_repository.dart';
+import 'package:rick_and_morty/character/data/service/character_response.dart';
 
 abstract class CharacterInteractor {
   Future<CharacterApiResponse> fetchCharacters(int page);

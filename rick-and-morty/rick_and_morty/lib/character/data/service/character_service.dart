@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-import 'package:rick_and_morty/data/service/character_response.dart';
+import 'package:rick_and_morty/character/data/service/character_response.dart';
 
 abstract class CharacterService {
   // o [] dentro do parametro, diz que é um argumento opcional
@@ -15,22 +15,18 @@ class CharacterServiceImpl implements CharacterService {
 
   // o _ é pq consta que vai ser um atributo privado
   final Dio _client;
-  
+
   @override
   Future<CharacterApiResponse> getCharacters([int page = 1]) async {
-    final response = await _client.get(
-      'character',
-      queryParameters: {
-        'page': '$page'
-      }
-    );
+    final response =
+        await _client.get('character', queryParameters: {'page': '$page'});
+
+    await Future.delayed(const Duration(seconds: 2));
 
     if (response.statusCode == 200) {
       return CharacterApiResponse.fromJson(response.data);
     }
 
     throw HttpException('Fail to get characters at page $page');
-
   }
-
 }

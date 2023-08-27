@@ -12,10 +12,10 @@
 import 'package:dio/dio.dart' as _i3;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
-import 'package:rick_and_morty/data/character_repository.dart' as _i5;
-import 'package:rick_and_morty/data/service/character_service.dart' as _i4;
-import 'package:rick_and_morty/domain/character_interactor.dart' as _i6;
-import 'package:rick_and_morty/home/presentation/bloc/character_bloc.dart'
+import 'package:rick_and_morty/character/data/character_repository.dart' as _i5;
+import 'package:rick_and_morty/character/data/service/character_service.dart' as _i4;
+import 'package:rick_and_morty/character/domain/character_interactor.dart' as _i6;
+import 'package:rick_and_morty/character/presentation/bloc/character_bloc.dart'
     as _i7;
 import 'package:rick_and_morty/network/network_module.dart' as _i8;
 

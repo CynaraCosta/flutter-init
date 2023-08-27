@@ -2,8 +2,8 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:injectable/injectable.dart';
-import 'package:rick_and_morty/data/service/character_response.dart';
-import 'package:rick_and_morty/domain/character_interactor.dart';
+import 'package:rick_and_morty/character/data/service/character_response.dart';
+import 'package:rick_and_morty/character/domain/character_interactor.dart';
 import 'package:rick_and_morty/shared/event_transformations.dart';
 
 part 'character_event.dart';

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:rick_and_morty/home/presentation/bloc/character_bloc.dart';
+import 'package:rick_and_morty/character/presentation/bloc/character_bloc.dart';
+import 'package:rick_and_morty/character/presentation/widgets/character_card_widget.dart';
+import 'package:rick_and_morty/shared/widgets/default_loading_widget.dart';
 import 'package:rick_and_morty/shared/widgets/default_try_again_widget.dart';
 
 class CharacterWidget extends StatefulWidget {
@@ -36,41 +38,39 @@ class _CharacterWidgetState extends State<CharacterWidget> {
             if (state.result == ResultState.initial ||
                 state.result == ResultState.loading && state.isFirstPage) ...{
               const Center(
-                  child: SizedBox(
-                height: 100,
-                child: CircularProgressIndicator(),
-              ))
+                child: DefaultLoadingWidget(),
+              )
             } else if (state.result == ResultState.error &&
                 state.isFirstPage) ...{
               Center(
                 child: DefaultTryAgainWidget(onPressed: _requestCharacters),
               )
-            } else ... {
+            } else ...{
               ListView.builder(
-                  shrinkWrap: true,
-                  controller: _scrollController,
-                  itemBuilder: (context, index) {
-                    if (index < state.characters.length) {
-                      return SizedBox(
-                        height: 200,
-                        child: Text(state.characters[index].name),
-                      );
-                    } else if (state.result == ResultState.error) {
-                      return DefaultTryAgainWidget(
-                        onPressed: _requestCharacters,
-                      );
-                    } else {
-                      return const SizedBox(
-                        height: 100,
-                        child: CircularProgressIndicator(), 
-                      );
-                    }
-                    
-                  },
-                  itemCount: state.hasReachedMax 
-                  ? state.characters.length 
-                  : state.characters.length + 1,
-                )
+                shrinkWrap: true,
+                controller: _scrollController,
+                itemBuilder: (context, index) {
+                  if (index < state.characters.length) {
+                    return CharacterCardWidget(
+                      response: state.characters[index],
+                      onTap: () {
+                        
+                      },
+                    );
+                  } else if (state.result == ResultState.error) {
+                    return DefaultTryAgainWidget(
+                      onPressed: _requestCharacters,
+                    );
+                  } else {
+                    return const Center(
+                      child: DefaultLoadingWidget(),
+                    );
+                  }
+                },
+                itemCount: state.hasReachedMax
+                    ? state.characters.length
+                    : state.characters.length + 1,
+              )
             }
           ],
         );

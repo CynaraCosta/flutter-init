@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:rick_and_morty/character/presentation/page/character_page.dart';
 import 'package:rick_and_morty/home/presentation/cubit/navigation_cubit.dart';
-import 'package:rick_and_morty/home/presentation/page/character_page.dart';
 
 class HomeWidget extends StatelessWidget {
   HomeWidget({super.key});
@@ -28,7 +28,8 @@ class HomeWidget extends StatelessWidget {
           bottomNavigationBar: BottomNavigationBar(
             items: _pages.values.toList(),
             currentIndex: 0,
-            onTap: (value) => context.read<NavigationCubit>().onSelectTab(value),
+            onTap: (value) => 
+            context.read<NavigationCubit>().onSelectTab(value),
           ),
         );
       },
