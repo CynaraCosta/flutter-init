@@ -30,7 +30,7 @@ class HomeWidget extends StatelessWidget {
             items: _pages.values.toList(),
             currentIndex: 0,
             onTap: (value) => 
-            context.read<NavigationCubit>().onSelectTab(value),
+              context.read<NavigationCubit>().onSelectTab(value),
           ),
         );
       },
