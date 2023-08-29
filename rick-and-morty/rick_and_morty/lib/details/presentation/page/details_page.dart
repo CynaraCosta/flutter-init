@@ -15,6 +15,7 @@ class DetailsPage extends StatelessWidget {
       create: (context) => GetIt.I.get<CharacterDetailsBloc>()
       ..add(CharacterDetailsRequestEvent(characterId)),
       child: Scaffold(
+        appBar: AppBar(),
         body: DetailsWidget(
           characterId: characterId
         ),
