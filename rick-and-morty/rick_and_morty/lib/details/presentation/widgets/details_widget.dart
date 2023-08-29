@@ -53,9 +53,10 @@ class DetailsWidget extends StatelessWidget {
                             state.response.locations.length,
                             shrinkWrap: true,
                             children: state.response.locations.map(
-                              (currentLocation) => CharacterDetailsLocationWidget(
+                              (currentLocation) => 
+                              CharacterDetailsLocationWidget(
                                 location: currentLocation
-                                )
+                              )
                             ).toList(),
                         )
                       }
