@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rick_and_morty/details/presentation/bloc/character_details_bloc.dart';
+import 'package:rick_and_morty/shared/datastructure/pair.dart';
+import 'package:rick_and_morty/shared/widgets/default_loading_widget.dart';
+import 'package:rick_and_morty/shared/widgets/default_try_again_widget.dart';
 
 class DetailsWidget extends StatelessWidget {
   const DetailsWidget({super.key, required this.characterId});
@@ -13,16 +16,63 @@ class DetailsWidget extends StatelessWidget {
       builder: (context, state) {
         return Stack(
           children: [
-            if (state is CharacterDetailsErrorState) ... {
-              const Text('Ops, error')
-          } else if (state is CharacterDetailsResultState) ... {
-              const Text(':)')
-          } else ... {
-              const Text('Loading...')
-          }
-          ],          
+            if (state is CharacterDetailsErrorState) ...{
+              Center(
+                child: DefaultTryAgainWidget(
+                  onPressed: () => _requestCharacterDetails(context),
+                ),
+              )
+            } else if (state is CharacterDetailsResultState) ...{
+                SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        width: double.infinity,
+                        child: Image.network(
+                          state.response.image,
+                          fit: BoxFit.fitWidth,
+                          ),
+                      ),
+
+                      ... [
+                        Pair('Name', state.response.name),
+                        Pair('Status', state.response.status),
+                        Pair('Espécie', state.response.species),
+                        Pair('Tipo', state.response.type),
+                      ].map((pair) => 
+                        ListTile(
+                          title: Text(pair.first),
+                          subtitle: Text(pair.second),
+                        )
+                      ),
+ 
+                      // -7:22
+                      if (state.response.locations.isNotEmpty) ... {
+                        GridView.count(
+                          crossAxisCount: 
+                            state.response.locations.length,
+                            shrinkWrap: true,
+                            children: state.response.locations.map(
+                              (currentLocation) => Text(currentLocation.name)
+                            ).toList(),
+                        )
+                      }
+
+                    ],
+                  ),
+                )
+            } else ...{
+              const Center(
+                child: DefaultLoadingWidget()
+                )
+            }
+          ],
         );
       },
     );
   }
+
+  void _requestCharacterDetails(BuildContext context) => 
+    context.read<CharacterDetailsBloc>()
+        ..add(CharacterDetailsRequestEvent(characterId));
 }

@@ -14,8 +14,10 @@ class DetailsPage extends StatelessWidget {
     return BlocProvider(
       create: (context) => GetIt.I.get<CharacterDetailsBloc>()
       ..add(CharacterDetailsRequestEvent(characterId)),
-      child: DetailsWidget(
-        characterId: characterId
+      child: Scaffold(
+        body: DetailsWidget(
+          characterId: characterId
+        ),
       ),
     );
   }
