@@ -9,7 +9,7 @@ abstract class NetworkModule {
 
   @Named('PrettyLogger')
   Interceptor providePrettyLogger() =>
-      PrettyDioLogger(responseBody: true, request: true);
+      PrettyDioLogger(responseBody: false, request: true);
 
   @singleton
   Dio provideDio(

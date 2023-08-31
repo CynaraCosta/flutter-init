@@ -14,16 +14,16 @@ abstract class TrendingMovieService {
 class TrendingMovieServiceImpl implements TrendingMovieService {
   TrendingMovieServiceImpl(this._client);
   final Dio _client;
-  final String userKey = Config.userKey;
+  final String apiKey = Config.apiKey;
 
   @override
   Future<TrendingMovieApiResponse> getTrendingMovies(
       [String language = 'pt-BR']) async {
     final response = await _client.get(
-      'treding/movie/day',
+      'trending/movie/day',
       queryParameters: {
         'language:': language, 
-        'user_key': userKey
+        'api_key': apiKey
       });
 
     if (response.statusCode == 200) {

@@ -30,7 +30,7 @@ class MovieResponse extends Equatable {
     json['overview'] as String,
     json['poster_path'] as String,
     json['media_type'] as String,
-    json['genre_ids'] as List<int>,
+    json['genre_ids'] as List<dynamic>,
     json['popularity'] as double,
     json['release_date'] as String,
     json['video'] as bool,
@@ -47,7 +47,7 @@ class MovieResponse extends Equatable {
   final String overview;
   final String posterPath;
   final String mediaType;
-  final List<int> genreIds;
+  final List<dynamic> genreIds;
   final double popularity;
   final String releaseDate;
   final bool video;

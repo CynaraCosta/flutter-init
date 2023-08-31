@@ -1,8 +1,8 @@
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class Config {
-  static String userKey =
-      dotenv.get('USER_KEY', fallback: 'USER_KEY not found').toString();
+  static String apiKey =
+      dotenv.get('API_KEY', fallback: 'API_KEY not found').toString();
 }
 
 // https://api.themoviedb.org/3/trending/movie/day?language=pt-BR&user_key=
