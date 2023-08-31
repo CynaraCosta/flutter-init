@@ -21,7 +21,7 @@ class MovieApp extends StatelessWidget {
     return Center(
       child: TextButton(
         onPressed: () {
-          print(dotenv.get('USER_KEY', fallback: 'USER_KEY not found'));
+          print(Config.userKey);
         },
         child: const Text('CLICA BROTHER!'),
       ),
