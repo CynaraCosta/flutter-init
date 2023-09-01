@@ -15,7 +15,7 @@ class HomeWidget extends StatelessWidget {
         child: TextButton(
           onPressed: () {
             final TrendingMovieInteractor interactor = GetIt.I.get();
-            interactor.fetchTrendingMovies('pt_BR');
+            interactor.fetchTrendingMovies('pt-BR');
             // interactor.fetchTrendingMovies('en-US');
           },
           child: const Text('CLICA BROTHER!'),

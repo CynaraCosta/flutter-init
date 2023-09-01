@@ -15,7 +15,7 @@ import 'package:injectable/injectable.dart' as _i2;
 import 'package:movie/network/network_module.dart' as _i7;
 import 'package:movie/trending_movies/data/service/trending_movie_service.dart'
     as _i4;
-import 'package:movie/trending_movies/data/treding_movie_repository.dart'
+import 'package:movie/trending_movies/data/trending_movie_repository.dart'
     as _i5;
 import 'package:movie/trending_movies/domain/trending_movie_interactor.dart'
     as _i6;

@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
+import 'package:logger/logger.dart';
 import 'package:movie/shared/config.dart';
 import 'package:movie/trending_movies/data/service/trending_movies_response.dart';
 
@@ -15,16 +16,14 @@ class TrendingMovieServiceImpl implements TrendingMovieService {
   TrendingMovieServiceImpl(this._client);
   final Dio _client;
   final String apiKey = Config.apiKey;
+  static final Logger logger = Logger();
 
   @override
   Future<TrendingMovieApiResponse> getTrendingMovies(
       [String language = 'pt-BR']) async {
-    final response = await _client.get(
-      'trending/movie/day',
-      queryParameters: {
-        'language:': language, 
-        'api_key': apiKey
-      });
+
+    final response = await _client.get('trending/movie/day',
+        queryParameters: {'language': language, 'api_key': apiKey});
 
     if (response.statusCode == 200) {
       return TrendingMovieApiResponse.fromJson(response.data);

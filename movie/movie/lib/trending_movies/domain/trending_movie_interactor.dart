@@ -1,6 +1,6 @@
 import 'package:injectable/injectable.dart';
 import 'package:movie/trending_movies/data/service/trending_movies_response.dart';
-import 'package:movie/trending_movies/data/treding_movie_repository.dart';
+import 'package:movie/trending_movies/data/trending_movie_repository.dart';
 
 abstract class TrendingMovieInteractor {
   Future<TrendingMovieApiResponse> fetchTrendingMovies(String language);
