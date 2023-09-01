@@ -1,8 +1,9 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:movie/trending_movies/data/service/trending_movie_service.dart';
-import 'package:movie/trending_movies/data/service/trending_movies_response.dart';
 import 'package:movie/trending_movies/data/trending_movie_repository.dart';
+import '../mocks/trending_movie_api_response_mock.dart';
+import '../mocks/trending_movie_service_mock.dart';
 
 void main() {
   group('trending movie repository tests', () {
@@ -27,7 +28,5 @@ void main() {
   });
 }
 
-class TrendingMovieServiceMock extends Mock implements TrendingMovieService {}
 
-class TrendingMovieApiResponseMock extends Mock
-    implements TrendingMovieApiResponse {}
+

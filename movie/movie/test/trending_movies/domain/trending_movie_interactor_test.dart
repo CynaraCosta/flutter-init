@@ -1,8 +1,10 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:movie/trending_movies/data/service/trending_movies_response.dart';
 import 'package:movie/trending_movies/data/trending_movie_repository.dart';
 import 'package:movie/trending_movies/domain/trending_movie_interactor.dart';
+
+import '../mocks/trending_movie_api_response_mock.dart';
+import '../mocks/trending_movie_repository_mock.dart';
 
 void main() {
   group('trending movie interactor tests', () {
@@ -26,8 +28,6 @@ void main() {
   });
 }
 
-class TrendingMovieRepositoryMock extends Mock
-    implements TrendingMovieRepository {}
 
-class TrendingMovieApiResponseMock extends Mock
-    implements TrendingMovieApiResponse {}
+
+
