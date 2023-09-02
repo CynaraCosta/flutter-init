@@ -14,10 +14,9 @@ class HomeWidget extends StatelessWidget {
     const FeedPage():
         const BottomNavigationBarItem(
           icon: Icon(Icons.movie), label: 'Feed'),
-    const Center(
-      child: SettingsPage(),
-    ): const BottomNavigationBarItem(
-        icon: Icon(Icons.settings), label: 'Settings')
+    const SettingsPage():
+        const BottomNavigationBarItem(
+          icon: Icon(Icons.settings), label: 'Settings'),
   };
 
   @override
