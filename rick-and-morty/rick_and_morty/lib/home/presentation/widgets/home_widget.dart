@@ -28,7 +28,7 @@ class HomeWidget extends StatelessWidget {
           ),
           bottomNavigationBar: BottomNavigationBar(
             items: _pages.values.toList(),
-            currentIndex: 0,
+            currentIndex: state,
             onTap: (value) => 
               context.read<NavigationCubit>().onSelectTab(value),
           ),
