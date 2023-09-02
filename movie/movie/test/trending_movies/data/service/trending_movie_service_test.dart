@@ -9,9 +9,9 @@ import 'package:movie/shared/config.dart';
 import 'package:movie/trending_movies/data/service/trending_movie_service.dart';
 import 'package:movie/trending_movies/data/service/trending_movies_response.dart';
 
-import '../../mocks/dio_mock.dart';
-import '../../mocks/movie_response_mock.dart';
-import '../../mocks/response_mock.dart';
+import '../../../mocks/dio_mock.dart';
+import '../../../mocks/movie_response_mock.dart';
+import '../../../mocks/response_mock.dart';
 
 void main() async {
   TestWidgetsFlutterBinding.ensureInitialized();
