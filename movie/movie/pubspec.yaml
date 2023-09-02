@@ -49,6 +49,7 @@ dependencies:
   mocktail: ^1.0.0
   logger: ^2.0.1
   coverage: ^1.6.3
+  bloc: ^8.1.2
 
 dev_dependencies:
   flutter_test:

@@ -1,16 +1,20 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:movie/home/presentation/page/home_page.dart';
 import 'package:movie/injection.dart';
+import 'package:movie/routes/app_routes.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   configureDependencies();
   await dotenv.load(fileName: '.env');
-  runApp(DevicePreview(builder: (_) {
-    return const MovieApp();
-  }));
+  runApp(
+    DevicePreview(
+      builder: (_) {
+        return const MovieApp();
+      },
+    ),
+  );
 }
 
 class MovieApp extends StatelessWidget {
@@ -18,6 +22,17 @@ class MovieApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const HomePage();
+    return const MovieApplication();
+  }
+}
+
+class MovieApplication extends StatelessWidget {
+  const MovieApplication({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp.router(
+      routerConfig: AppRoutes.router,
+    );
   }
 }
