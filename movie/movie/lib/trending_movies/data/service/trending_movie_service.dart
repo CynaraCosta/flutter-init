@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:movie/shared/config.dart';
@@ -19,7 +17,6 @@ class TrendingMovieServiceImpl implements TrendingMovieService {
   @override
   Future<TrendingMovieApiResponse> getTrendingMovies(
       [String language = 'pt-BR']) async {
-
     final response = await _client.get('trending/movie/day',
         queryParameters: {'language': language, 'api_key': apiKey});
 
@@ -29,6 +26,9 @@ class TrendingMovieServiceImpl implements TrendingMovieService {
       return TrendingMovieApiResponse.fromJson(response.data);
     }
 
-    throw const HttpException('Fail to get trending movies');
+    // throw const HttpException('Fail to get trending movies');
+    throw NetworkException();
   }
 }
+
+class NetworkException implements Exception {}

@@ -22,6 +22,8 @@ class LoadedState extends FeedCubitState {
 }
 
 class ErrorState extends FeedCubitState {
+  ErrorState(this.error);
+  final String error;
   @override
   List<Object?> get props => [];
 }

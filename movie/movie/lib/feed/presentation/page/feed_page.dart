@@ -11,7 +11,9 @@ class FeedPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => FeedCubit(GetIt.I.get<TrendingMovieRepository>()),
+      create: (context) => FeedCubit(
+        GetIt.I.get<TrendingMovieRepository>()
+      )..getTrendingFeed(),
       child: const FeedWidget(),
     );
   }

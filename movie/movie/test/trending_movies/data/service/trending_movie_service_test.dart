@@ -1,6 +1,4 @@
 import 'dart:convert';
-import 'dart:io';
-
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -54,7 +52,7 @@ void main() async {
       when(() => client.get('trending/movie/day',
               queryParameters: {'language': 'pt-BR', 'api_key': apiKey}))
           .thenAnswer((_) async => response);
-      expect(() => service.getTrendingMovies(), throwsA(isA<HttpException>()));
+      expect(() => service.getTrendingMovies(), throwsA(isA<NetworkException>()));
     });
   });
 }
