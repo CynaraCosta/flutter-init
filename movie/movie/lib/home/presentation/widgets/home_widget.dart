@@ -16,7 +16,9 @@ class HomeWidget extends StatelessWidget {
           icon: Icon(Icons.movie), label: 'Feed'),
     const SettingsPage():
         const BottomNavigationBarItem(
-          icon: Icon(Icons.settings), label: 'Settings'),
+          icon: Icon(Icons.settings), 
+          label: 'Settings',
+          ),
   };
 
   @override
@@ -24,11 +26,15 @@ class HomeWidget extends StatelessWidget {
     return BlocBuilder<NavigationHomeCubit, int>(
       builder: (context, state) {
         return Scaffold(
+          backgroundColor: Colors.grey[700],
           body: IndexedStack(
             index: state,
             children: _pages.keys.toList(),
           ),
           bottomNavigationBar: BottomNavigationBar(
+            showSelectedLabels: false,
+            showUnselectedLabels: false,
+            selectedItemColor: Colors.black,
             items: _pages.values.toList(),
             currentIndex: state,
             onTap: (newIndex) =>
