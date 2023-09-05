@@ -17,10 +17,10 @@ class DetailsMovieTitlePosterWidget extends StatelessWidget {
           SizedBox(width: width * 0.09),
           Expanded(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   movie.title,
-                  softWrap: true,
                   style:
                     const TextStyle(fontWeight: FontWeight.w900, fontSize: 18),
                 ),
@@ -31,7 +31,7 @@ class DetailsMovieTitlePosterWidget extends StatelessWidget {
                       Icons.calendar_month_outlined,
                       color: Colors.grey[400],
                     ),
-                    SizedBox(width: width * 0.02),
+                    SizedBox(width: width * 0.025),
                     Text(
                       movie.releaseDate,
                       style: TextStyle(fontSize: 14, color: Colors.grey[400]),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie/details_movie/presentation/widgets/details_movie_build_background_widget.dart';
+import 'package:movie/details_movie/presentation/widgets/details_movie_overview_widget.dart';
 import 'package:movie/details_movie/presentation/widgets/details_movie_title_poster_widget.dart';
 import 'package:movie/trending_movies/data/service/trending_movies_response.dart';
 
@@ -10,7 +11,7 @@ class DetailsMovie extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
+    final height = MediaQuery.of(context).size.height;
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -22,7 +23,9 @@ class DetailsMovie extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: [
           DetailsMovieBuildBackgroundWidget(movie: movie),
-          DetailsMovieTitlePosterWidget(movie: movie)
+          DetailsMovieTitlePosterWidget(movie: movie),
+          SizedBox(height: height * 0.03),
+          DetailsMovieOverview(movie: movie)
         ],
       )
     );
