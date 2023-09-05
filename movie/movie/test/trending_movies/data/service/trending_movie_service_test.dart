@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -10,6 +11,7 @@ import 'package:movie/trending_movies/data/service/trending_movies_response.dart
 import '../../../mocks/dio_mock.dart';
 import '../../../mocks/movie_response_mock.dart';
 import '../../../mocks/response_mock.dart';
+import '../../../mocks/test_mock.dart';
 
 void main() async {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -42,6 +44,24 @@ void main() async {
       expect(result.results, isA<List<MovieResponse>>());
     });
 
+    // void setUpDioMock({
+    //   int statusCode = HttpStatus.ok,
+    //   dynamic data,
+    // }) {
+    //   when(() => client.get('')).thenAnswer((_) async => Future.value(
+    //       Response(
+    //           requestOptions: RequestOptions(path: ''),
+    //           data: data,
+    //           statusCode: statusCode))
+    //         );
+    // }
+
+    // test('aaaa', () async {
+    //   setUpDioMock(data: teste);
+    //   final result = await service.getTrendingMovies();
+    //   expect(result, isA<TrendingMovieApiResponse>());
+    // });
+
     test(
         'GIVEN http client '
         'WHEN request trending movie with pt-BR language '
@@ -52,8 +72,8 @@ void main() async {
       when(() => client.get('trending/movie/day',
               queryParameters: {'language': 'pt-BR', 'api_key': apiKey}))
           .thenAnswer((_) async => response);
-      expect(() => service.getTrendingMovies(), 
-      throwsA(isA<NetworkException>()));
+      expect(
+          () => service.getTrendingMovies(), throwsA(isA<NetworkException>()));
     });
   });
 }

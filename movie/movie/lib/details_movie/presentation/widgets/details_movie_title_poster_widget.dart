@@ -37,7 +37,12 @@ class DetailsMovieTitlePosterWidget extends StatelessWidget {
                       style: TextStyle(fontSize: 14, color: Colors.grey[400]),
                     ),
                   ],
-                )
+                ),
+                SizedBox(height: height * 0.01),
+                    Text(
+                      'Comedy | Drama',
+                      style: TextStyle(fontSize: 14, color: Colors.grey[400]),
+                    ),
               ],
             ),
           )
