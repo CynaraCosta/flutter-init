@@ -52,7 +52,8 @@ void main() async {
       when(() => client.get('trending/movie/day',
               queryParameters: {'language': 'pt-BR', 'api_key': apiKey}))
           .thenAnswer((_) async => response);
-      expect(() => service.getTrendingMovies(), throwsA(isA<NetworkException>()));
+      expect(() => service.getTrendingMovies(), 
+      throwsA(isA<NetworkException>()));
     });
   });
 }
