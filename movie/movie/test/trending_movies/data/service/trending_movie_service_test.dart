@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -11,7 +10,6 @@ import 'package:movie/trending_movies/data/service/trending_movies_response.dart
 import '../../../mocks/dio_mock.dart';
 import '../../../mocks/movie_response_mock.dart';
 import '../../../mocks/response_mock.dart';
-import '../../../mocks/test_mock.dart';
 
 void main() async {
   TestWidgetsFlutterBinding.ensureInitialized();
